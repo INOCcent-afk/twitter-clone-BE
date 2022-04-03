@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tweets",
+  "info": {
+    "singularName": "tweet",
+    "pluralName": "tweets",
+    "displayName": "tweet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "pluginOptions": {},
+      "type": "text",
+      "maxLength": 255
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {}
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tweets"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tweet.tweet",
+      "mappedBy": "tweet"
+    },
+    "tweet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tweet.tweet",
+      "inversedBy": "comments"
+    },
+    "likes": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    }
+  }
+}
