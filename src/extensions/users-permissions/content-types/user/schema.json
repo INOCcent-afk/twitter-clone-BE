@@ -76,13 +76,13 @@
     },
     "followers": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "following"
+      "mappedBy": "followings"
     },
-    "following": {
+    "followings": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "followers"
     },
