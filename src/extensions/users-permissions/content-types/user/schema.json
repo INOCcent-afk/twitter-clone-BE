@@ -101,6 +101,18 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "tweet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tweet.tweet",
+      "inversedBy": "likes"
+    },
+    "tweet_reshare": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tweet.tweet",
+      "inversedBy": "reshare"
     }
   }
 }

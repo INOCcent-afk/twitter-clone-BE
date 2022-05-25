@@ -48,9 +48,16 @@
       "inversedBy": "comments"
     },
     "likes": {
-      "type": "integer",
-      "required": false,
-      "default": 0
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "tweet"
+    },
+    "reshare": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "tweet_reshare"
     }
   }
 }
