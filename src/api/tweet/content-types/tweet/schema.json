@@ -47,17 +47,17 @@
       "target": "api::tweet.tweet",
       "inversedBy": "comments"
     },
+    "shares": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::share.share",
+      "mappedBy": "tweets"
+    },
     "likes": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "tweet"
-    },
-    "reshare": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "tweet_reshare"
+      "relation": "manyToMany",
+      "target": "api::like.like",
+      "mappedBy": "tweets"
     }
   }
 }

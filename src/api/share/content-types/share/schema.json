@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shares",
+  "info": {
+    "singularName": "share",
+    "pluralName": "shares",
+    "displayName": "share",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reshared": {
+      "type": "boolean",
+      "default": false
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "shares"
+    },
+    "tweets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tweet.tweet",
+      "inversedBy": "shares"
+    }
+  }
+}

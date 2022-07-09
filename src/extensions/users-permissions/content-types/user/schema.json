@@ -102,17 +102,23 @@
         "images"
       ]
     },
-    "tweet": {
+    "notifications": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::tweet.tweet",
-      "inversedBy": "likes"
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "user"
     },
-    "tweet_reshare": {
+    "likes": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::tweet.tweet",
-      "inversedBy": "reshare"
+      "relation": "manyToMany",
+      "target": "api::like.like",
+      "inversedBy": "users"
+    },
+    "shares": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::share.share",
+      "inversedBy": "users"
     }
   }
 }
